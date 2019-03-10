@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TechYouth</string>
+    <string name="serveraddress">http://192.168.2.109/</string>
+</resources>
