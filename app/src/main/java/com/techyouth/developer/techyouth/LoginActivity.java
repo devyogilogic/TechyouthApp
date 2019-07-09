@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class LoginActivity extends AppCompatActivity {
-   public static  String server="http://192.168.2.109/";
+   public static  String server="http://192.168.2.110/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

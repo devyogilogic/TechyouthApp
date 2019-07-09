@@ -1,5 +1,6 @@
 package com.techyouth.developer.techyouth;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -32,6 +33,9 @@ public class SigninActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<Register> call, Response<Register> response) {
                             Toast.makeText(SigninActivity.this, ""+response.body().getStatus(), Toast.LENGTH_SHORT).show();
+                            if(response.body().getStatus().equals("User Log in")){
+                                startActivity(new Intent(SigninActivity.this,maincontrolller.class));
+                            }
                         }
 
                         @Override

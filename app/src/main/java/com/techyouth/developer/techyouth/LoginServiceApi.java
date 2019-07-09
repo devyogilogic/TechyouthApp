@@ -18,4 +18,8 @@ public interface LoginServiceApi {
                                @Field("username") String username,
                                 @Field("password") String password,
                                 @Field("want")String want);
+    @POST("/technicalyouth/api/interest.php")
+    @FormUrlEncoded
+    Call<Interest>getInterest(@Field("want")String want);
+
 }

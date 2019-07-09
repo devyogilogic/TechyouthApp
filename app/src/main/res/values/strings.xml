@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">TechYouth</string>
-    <string name="serveraddress">http://192.168.2.109/</string>
+    <string name="serveraddress">http://192.168.2.110/</string>
     <string name="title_activity_maincontrolller">maincontrolller</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -8,4 +8,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
