@@ -15,11 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class maincontrolller extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-     ImageView img;
+     TextView img;
      ImageView cross;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class maincontrolller extends AppCompatActivity
         setContentView(R.layout.activity_maincontrolller);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        img=(ImageView)findViewById(R.id.slidemenu);
+        img=(TextView)findViewById(R.id.slidemenu);
 
 
 
