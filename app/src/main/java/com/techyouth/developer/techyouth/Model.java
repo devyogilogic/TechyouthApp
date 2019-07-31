@@ -20,6 +20,10 @@ public class Model {
         Interest_id = interest_id;
     }
 
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
     public String getInterset_Area() {
         return Interset_Area;
     }
@@ -28,12 +32,9 @@ public class Model {
         Interset_Area = interset_Area;
     }
 
-    public void setSelected(boolean selected) {
-        isSelected = selected;
-    }
-
 
     public boolean isSelected() {
         return isSelected;
+
     }
 }
