@@ -4,6 +4,8 @@ package com.techyouth.developer.techyouth;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +34,29 @@ public class QuestionFrag extends Fragment {
         RecyclerView recyclerView =(RecyclerView)rd.findViewById(R.id.questionRec);
         qm = new ArrayList<>();
       qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+        qm.add(new QuestionModel("1","What is python","27/12/13 12:00pm","yogesh")) ;
+
+        QuestionAdapter qna = new QuestionAdapter(getContext(),qm);
+         LinearLayoutManager lm = new LinearLayoutManager(getContext());
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+            lm.getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
+        recyclerView.setLayoutManager(lm);
+        recyclerView.setAdapter(qna);
 
 
 

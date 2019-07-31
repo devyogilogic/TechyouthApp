@@ -27,6 +27,7 @@ public class maincontrolller extends AppCompatActivity
      TextView img;
      ImageView cross;
      FrameLayout fr;
+    FragmentTransaction ft;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class maincontrolller extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         img=(TextView)findViewById(R.id.slidemenu);
-        final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft = getSupportFragmentManager().beginTransaction();
         View vf =View.inflate(maincontrolller.this,R.layout.content_maincontrolller,null);
         img.setText("Set up your Profile");
         ft.replace(R.id.frame,new setupprofile());
@@ -103,7 +104,12 @@ public class maincontrolller extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            FragmentTransaction df= getSupportFragmentManager().beginTransaction();
+
+            img.setText("Q&A Discussions");
+            df.replace(R.id.frame,new QuestionFrag());
+            df.commit();
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
