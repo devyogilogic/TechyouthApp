@@ -15,6 +15,7 @@
         android:pointerIcon="crosshair"
         android:layout_alignBottom="@id/questionRec"
        android:layout_alignParentRight="true"
+        android:id="@+id/QuestionpostFab"
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
        />

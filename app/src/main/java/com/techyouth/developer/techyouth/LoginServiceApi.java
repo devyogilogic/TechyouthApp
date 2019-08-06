@@ -24,4 +24,9 @@ public interface LoginServiceApi {
     @FormUrlEncoded
     Call<List<Interest>>getInterest(@Field("want")String want);
 
+
+    @POST("/technicalyouth/api/listquestionpostbyuser.php")
+    @FormUrlEncoded
+    Call<List<ListPost>>getQuestion(@Field("want")String want);
+
 }

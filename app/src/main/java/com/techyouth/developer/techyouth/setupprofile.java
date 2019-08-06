@@ -49,7 +49,7 @@ final View idk=inflater.inflate(R.layout.fragment_setupprofile, container, false
 
                 for(  int i=0 ; i<response.body().size();++i){
 
-                     mModelList.add(new Model(response.body().get(i).getInterestArea(),response.body().get(i).getId()));
+                     mModelList.add(new Model(""+response.body().get(i).getInterestArea(),""+response.body().get(i).getId()));
 
 
                 }
