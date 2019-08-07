@@ -29,4 +29,9 @@ public interface LoginServiceApi {
     @FormUrlEncoded
     Call<List<ListPost>>getQuestion(@Field("want")String want);
 
+    @POST("/technicalyouth/api/sendpost.php")
+    @FormUrlEncoded
+    Call<SendQuestion>PostQuestion(@Field("userid")String userid,
+                                    @Field("postdata")String Question );
+
 }

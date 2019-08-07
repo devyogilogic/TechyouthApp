@@ -3,6 +3,7 @@ package com.techyouth.developer.techyouth;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -28,6 +29,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,6 +41,7 @@ public class QuestionFrag extends Fragment {
   public   EditText QuestionDailog,DiscriptionDal;
    public TextView QuestionCounter,DiscriptionCounter,PostQuestions;
    public   LoginServiceApi mAPIService;
+   public  String userid ;
     RecyclerView recyclerView;
     public QuestionFrag() {
         // Required empty public constructor
@@ -49,6 +53,9 @@ public class QuestionFrag extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
+        SharedPreferences prefs = getContext().getSharedPreferences("LoginCache", MODE_PRIVATE);
+       userid = prefs.getString("userid", null);
+        Toast.makeText(getContext(), ""+userid, Toast.LENGTH_SHORT).show();
         View rd =inflater.inflate(R.layout.fragment_question, container, false);
        recyclerView =(RecyclerView)rd.findViewById(R.id.questionRec);
 
@@ -117,6 +124,12 @@ public class QuestionFrag extends Fragment {
                     }
                 });
 
+                PostQuestions.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        new PostQuestionManager().execute();
+                    }
+                });
                 AlertDialog.Builder as= new AlertDialog.Builder(getContext());
                 AlertDialog asd= as.create();
                 asd.setView(QuestionDailogs);
@@ -180,6 +193,42 @@ public class QuestionFrag extends Fragment {
 
                }
            });
+           return null;
+       }
+   }
+   class PostQuestionManager extends  AsyncTask<Void,Void,Void>{
+        ProgressDialog progressDialog;
+
+       @Override
+       protected void onPreExecute() {
+           super.onPreExecute();
+           progressDialog= new ProgressDialog(getContext());
+           progressDialog.setTitle("Posting Question");
+           progressDialog.show();
+       }
+
+       @Override
+       protected void onPostExecute(Void aVoid) {
+           super.onPostExecute(aVoid);
+           progressDialog.dismiss();
+       }
+
+       @Override
+       protected Void doInBackground(Void... voids) {
+
+
+           mAPIService.PostQuestion(userid, ""+QuestionDailog.getText().toString()).enqueue(new Callback<SendQuestion>() {
+               @Override
+               public void onResponse(Call<SendQuestion> call, Response<SendQuestion> response) {
+                   Toast.makeText(getContext(), ""+response.body().getStatus(), Toast.LENGTH_SHORT).show();
+               }
+
+               @Override
+               public void onFailure(Call<SendQuestion> call, Throwable t) {
+
+               }
+           });
+
            return null;
        }
    }
